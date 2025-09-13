@@ -1,31 +1,34 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import BusinessCard from "./components/BusinessCard";
-import Home from "./components/Home"; // optional homepage component
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+import HomeComponent from "./components/HomeComponent";
+import BusinessCard from "./components/BusinessCardComponent";
+import LinkComponent from "./components/LinkComponent";
+import ImageComponent from "./components/ImageComponent";
+import DocumentComponent from "./components/DocumentComponent";
+import AboutComponent from "./components/AboutComponent";
 
 function App() {
-  // This state will hold the latest generated card (for the sidebar)
   const [sidebarCard, setSidebarCard] = useState(null);
 
-  // handler passed to BusinessCard so it can push generated data up
   const handleGenerated = (data) => {
-    // data = { qrUrl, card }
     setSidebarCard(data);
   };
 
   return (
     <Router>
-      <Layout sidebarCard={sidebarCard} setSidebarCard={setSidebarCard}>
+      <HeaderComponent sidebarCard={sidebarCard} setSidebarCard={setSidebarCard}></HeaderComponent>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/business-card"
-            element={<BusinessCard onGenerate={handleGenerated} />}
+          <Route path="/" element={<HomeComponent /> } />
+          <Route path="/about" element={<AboutComponent /> } />
+          <Route path="/link" element={<LinkComponent /> } />
+          <Route path="/image" element={<ImageComponent /> } />
+          <Route path="/document" element={<DocumentComponent /> } />
+          <Route path="/business-card" element={<BusinessCard onGenerate={handleGenerated} />}
           />
-          {/* add other routes as needed */}
         </Routes>
-      </Layout>
+        <FooterComponent></FooterComponent>
     </Router>
   );
 }

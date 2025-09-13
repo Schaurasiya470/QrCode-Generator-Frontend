@@ -33,19 +33,7 @@ const Layout = ({ children, sidebarCard, setSidebarCard }) => {
   return (
     <div className="d-flex flex-column min-vh-100">
       {/* Header */}
-      <Navbar style={{ backgroundColor: "#2563EB" }} variant="dark" expand="lg" sticky="top" className="px-3">
-        <Container fluid>
-          <Navbar.Brand as={Link} to="/" className="text-white fw-bold">QrCode Generator</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-nav" />
-          <Navbar.Collapse id="navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/" className="text-white">Home</Nav.Link>
-              <Nav.Link as={Link} to="/business-card" className="text-white">Business Card</Nav.Link>
-              <Nav.Link as={Link} to="/links" className="text-white">Links</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      
 
       {/* Body */}
       <div className="d-flex flex-grow-1">
@@ -98,51 +86,7 @@ const Layout = ({ children, sidebarCard, setSidebarCard }) => {
       </div>
 
       {/* Footer */}
-      <footer style={{ backgroundColor: "#111827", color: "#F9FAFB" }} className="pt-4 pb-3 mt-auto">
-        <Container>
-          <Row>
-            <Col md={3}>
-              <h5>About</h5>
-              <p style={{ color: "#d1d5db" }}>
-                QR Code Generator — create QR codes and share digital business cards quickly.
-              </p>
-            </Col>
-
-            <Col md={3}>
-              <h5>Docs</h5>
-              <ul className="list-unstyled">
-                <li><a href="#" className="text-light">Getting Started</a></li>
-                <li><a href="#" className="text-light">Components</a></li>
-                <li><a href="#" className="text-light">Examples</a></li>
-              </ul>
-            </Col>
-
-            <Col md={3}>
-              <h5>Resources</h5>
-              <ul className="list-unstyled">
-                <li><a href="#" className="text-light">Blog</a></li>
-                <li><a href="#" className="text-light">Tutorials</a></li>
-                <li><a href="#" className="text-light">Support</a></li>
-              </ul>
-            </Col>
-
-            <Col md={3}>
-              <h5>Follow Us</h5>
-              <div className="d-flex gap-3 mt-2">
-                <a href="https://facebook.com" className="text-light"><FaFacebook size={20} /></a>
-                <a href="https://twitter.com" className="text-light"><FaTwitter size={20} /></a>
-                <a href="https://github.com" className="text-light"><FaGithub size={20} /></a>
-                <a href="https://linkedin.com" className="text-light"><FaLinkedin size={20} /></a>
-              </div>
-            </Col>
-          </Row>
-
-          <hr className="border-secondary" />
-          <div className="text-center small">
-            © {new Date().getFullYear()} QrCode Generator. All rights reserved.
-          </div>
-        </Container>
-      </footer>
+      
     </div>
   );
 };
