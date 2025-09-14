@@ -1,0 +1,11 @@
+.business-card {
+  background: #fff;
+  border: none;
+  position: relative;
+}
+
+.card-header-wave {
+  background: linear-gradient(135deg, #1e9600, #fff200, #ff0000);
+  clip-path: ellipse(150% 100% at 50% 0%);
+  text-align: left;
+}

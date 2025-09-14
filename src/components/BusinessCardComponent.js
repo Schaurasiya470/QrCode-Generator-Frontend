@@ -3,11 +3,13 @@ import axios from "axios";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import html2canvas from "html2canvas";
 import { FaDownload } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function BusinessCard() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
-    phone: "",
+    mobile: "",
     email: "",
     company: "",
     website: "",
@@ -23,7 +25,7 @@ function BusinessCard() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://web-qr-code-generator.onrender.com/api/generate",
+        "https://web-qr-code-generator.onrender.com/generate-card",
         form
       );
       setQrData(res.data); // save API QR
@@ -98,10 +100,10 @@ function BusinessCard() {
 
               <Row className="mb-3">
                 <Col xs={12} md={6}>
-                  <label className="form-label fw-semibold">Phone</label>
+                  <label className="form-label fw-semibold">Mobile</label>
                   <input
-                    name="phone"
-                    value={form.phone}
+                    name="mobile"
+                    value={form.mobile}
                     onChange={handleChange}
                     className="form-control"
                     placeholder="+91 98765 43210"
@@ -166,7 +168,7 @@ function BusinessCard() {
               src={
                 qrData
                   ? qrData.qrUrl
-                  : "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Demo-QR"
+                  : "/assets/qr_sample.png"
               }
               alt="Generated QR"
               className="img-fluid mb-3"
@@ -175,15 +177,12 @@ function BusinessCard() {
 
             {qrData ? (
               <>
-                <h5>{form.name}</h5>
-                <p className="mb-1">{form.phone}</p>
-                <p className="mb-1">{form.email}</p>
-                {form.company && <p className="mb-1">{form.company}</p>}
-                {form.website && (
-                  <a href={form.website} target="_blank" rel="noreferrer">
-                    {form.website}
-                  </a>
-                )}
+               <button
+                className="btn btn-primary mt-3"
+                onClick={() => navigate(`/get-card/${qrData.card._id}`)}
+              >
+                Show Your Business Card
+              </button>
               </>
             ) : (
               <p className="text-muted">

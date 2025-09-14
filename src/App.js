@@ -8,10 +8,10 @@ import LinkComponent from "./components/LinkComponent";
 import ImageComponent from "./components/ImageComponent";
 import DocumentComponent from "./components/DocumentComponent";
 import AboutComponent from "./components/AboutComponent";
+import CardComponent from "./components/CardComponent";
 
 function App() {
   const [sidebarCard, setSidebarCard] = useState(null);
-
   const handleGenerated = (data) => {
     setSidebarCard(data);
   };
@@ -25,6 +25,7 @@ function App() {
           <Route path="/link" element={<LinkComponent /> } />
           <Route path="/image" element={<ImageComponent /> } />
           <Route path="/document" element={<DocumentComponent /> } />
+          <Route path="/get-card/:id" element={<CardComponent /> } />
           <Route path="/business-card" element={<BusinessCard onGenerate={handleGenerated} />}
           />
         </Routes>
